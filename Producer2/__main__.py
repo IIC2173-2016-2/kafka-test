@@ -60,4 +60,4 @@ def index():
     return render_template('home.html', form=form)
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=5004)
