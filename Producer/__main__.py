@@ -21,7 +21,7 @@ def home():
             # Save the comment here.
             return redirect(url_for('write_to_topic',
                                     topic='test',
-                                    message="'{}'".format(mensaje)),
+                                    message="{}".format(mensaje)),
                             code=307)
         else:
             print("Nope")
@@ -60,4 +60,4 @@ def index():
     return render_template('home.html', form=form)
 
 if __name__ == "__main__":
-    app.run(port=5004)
+    app.run(port=5003)
