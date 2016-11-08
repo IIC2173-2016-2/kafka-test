@@ -7,19 +7,19 @@
 ## Configurar Kafka
 Descargar y descomprimir Apache Kafka versión [2.11-0.10.1.0](https://www.apache.org/dyn/closer.cgi?path=/kafka/0.10.1.0/kafka_2.11-0.10.1.0.tgz) desde el link otorgado.
 
-1. Correr Zookeeper
+* Correr Zookeeper
 ```bash
 $ cd kafka_2.11-0.10.1.0
 $ bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
 
-2. Correr el servidor de Kafka
+* Correr el servidor de Kafka
 
 ```bash
 $ bin/kafka-server-start.sh config/server.properties
 ```
 
-3. Crear un `topic` para poder generar el `pub-sub` de mensajes.
+* Crear un `topic` para poder generar el `pub-sub` de mensajes.
 
 ```bash
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
@@ -27,18 +27,18 @@ $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1
 
 ## Configurar kafka-test
 
-1. Clonar este repositorio, y entrar a la carpeta principal.
+* Clonar este repositorio, y entrar a la carpeta principal.
 ```bash
 $ cd kafka-test
 ```
-2. Editar en `Producer` el `host` por donde se publicara el sream de datos. Por default esta en localhost.
+* Editar en `Producer` el `host` por donde se publicara el sream de datos. Por default esta en localhost.
 ```python
 def get_kafka_client():
     return KafkaClient(hosts='127.0.0.1:9092')
 ```
 Puedes poner más de un `host`, separandolos por coma.
 
-3. Correr desde la carpeta `kafka-test` el siguiente comando para ejecutar el microservicio.
+* Correr desde la carpeta `kafka-test` el siguiente comando para ejecutar el microservicio.
 
 ```bash
 $ python[3] Producer
@@ -51,14 +51,14 @@ Se ejecutara en el puerto `5000` el productor. Este recibirá requests del tipo 
 [POST] http://127.00.1:5000/post/test?message="This is a text pusblished"
 ```
 
-4. Editar en `Consumer` el `host` de manera similar.
+* Editar en `Consumer` el `host` de manera similar.
 
 ```python
 def get_kafka_client():
     return KafkaClient(hosts='127.0.0.1:9092')
 ```
 
-5. Correr desde la carpeta `kafka-test` el siguiente comando para ejecutar el microservicio.
+* Correr desde la carpeta `kafka-test` el siguiente comando para ejecutar el microservicio.
 ```bash
 $ python[3] Client
 ```
