@@ -2,18 +2,27 @@
 <html ng-app="myApp">
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Consumer Client</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body ng-controller="myController">
-  <h1>This is a title</h1>
-    <ul>
-      <li ng-repeat="msg in messages | filter:searchText track by $index">
-        {{ '{{msg}}' }}
-      </li>
-    </ul>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+  <div class="container center-block">
+    <div class="row">
+      <div class="col-sm-6 col-md-4"</div>
+        <div class="caption">
+          <h1>Suscriber</h1>
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="msg in messages | filter:searchText track by $index">
+              {{ '{{msg}}' }}
+            </li>
+          </ul>
+        </div>
+    </div>
+  </div>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script>
     var myApp = angular.module('myApp', []);
 

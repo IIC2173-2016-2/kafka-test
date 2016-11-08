@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 class MessageForm(Form):
-    message = TextField('Mensaje:', validators=[validators.required()])
+    message = TextAreaField('Mensaje', validators=[validators.required()])
 
 
 @app.route("/", methods=['GET', 'POST'])
